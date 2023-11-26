@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './add-edit-surfboard.component.html',
   styleUrls: ['./add-edit-surfboard.component.css'],
 })
-export class AddEditSurfboardComponent {}
+export class AddEditSurfboardComponent {
+  addOrEditTitle: string = 'Edit';
+}
