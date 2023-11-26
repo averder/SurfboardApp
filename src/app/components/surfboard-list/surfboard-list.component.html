@@ -1,1 +1,82 @@
-<p>surfboard-list works!</p>
+<div class="title">
+  <h1>List Surfboards</h1>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name.</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Size Column -->
+  <ng-container matColumnDef="size">
+    <th mat-header-cell *matHeaderCellDef>Size</th>
+    <td mat-cell *matCellDef="let element">{{ element.size }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+  </ng-container>
+
+  <!-- Amount Column -->
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+  </ng-container>
+
+  <!-- LinkSocialMedia Column -->
+  <ng-container matColumnDef="linkSocialMedia">
+    <th mat-header-cell *matHeaderCellDef>LinkSocialMedia</th>
+    <td mat-cell *matCellDef="let element">{{ element.linkSocialMedia }}</td>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+  </ng-container>
+
+  <!-- Type Column -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+  </ng-container>
+
+  <!-- Sold Column -->
+  <ng-container matColumnDef="sold">
+    <th mat-header-cell *matHeaderCellDef>Sold</th>
+    <td mat-cell *matCellDef="let element">{{ element.sold }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="accion">
+    <th mat-header-cell *matHeaderCellDef>
+      <button class="add" mat-raised-button color="primary">Aceptar</button>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon matTooltip="View" class="search" fontIcon="search"></mat-icon>
+      <mat-icon matTooltip="Edit" class="edit" fontIcon="edit"></mat-icon>
+      <mat-icon matTooltip="Delete" class="delete" fontIcon="delete"></mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>

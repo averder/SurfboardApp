@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Material UI
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,5 +8,5 @@ export interface Surfboard {
   price: number;
   description: string;
   type: string;
-  isSell: boolean;
+  sold: boolean;
 }

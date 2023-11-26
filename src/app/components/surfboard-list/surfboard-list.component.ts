@@ -1,10 +1,156 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Surfboard } from 'src/app/Interfaces/surfboard';
+
+const listSurfboards: Surfboard[] = [
+  {
+    name: 'Tabla1',
+    size: '6.0x18x3/4',
+    weight: 35,
+    amount: 3,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 15000,
+    description:
+      'Versatile surfboard suitable for various styles and skill levels. With dimensions of 6.0x18x3/4',
+    type: 'Hybrid',
+    sold: false,
+  },
+  {
+    name: 'Tabla2',
+    size: '7.0x13x2/3',
+    weight: 23,
+    amount: 2,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 4500,
+    description:
+      'Sleek and nimble surfboard ideal for experienced riders. With dimensions of 7.0x13x2/3.',
+    type: 'Shortboard',
+    sold: true,
+  },
+  {
+    name: 'Tabla3',
+    size: '6.4x14x2/7',
+    weight: 45,
+    amount: 1,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 6000,
+    description:
+      'Sturdy and stable surfboard designed for intermediate surfers.',
+    type: 'Funboard',
+    sold: false,
+  },
+  {
+    name: 'Tabla4',
+    size: '7.2x18x2/3',
+    weight: 35,
+    amount: 5,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 8000,
+    description:
+      'Versatile surfboard with dimensions of 7.2x18x2/3, suitable for various skill levels.',
+    type: 'Hybrid',
+    sold: true,
+  },
+  {
+    name: 'Tabla5',
+    size: '6.4x19x2/6',
+    weight: 42,
+    amount: 2,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 18000,
+    description:
+      'High-performance surfboard with dimensions of 6.4x19x2/6. Designed for experienced riders seeking agility and speed.',
+    type: 'Shortboard',
+    sold: false,
+  },
+  {
+    name: 'Tabla6',
+    size: '6.7x19x2/4',
+    weight: 27,
+    amount: 4,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 14000,
+    description:
+      'Fun and versatile surfboard with dimensions of 6.7x19x2/4. Lightweight at 27 pounds, this board is suitable for riders of all levels.',
+    type: 'Funboard',
+    sold: true,
+  },
+  {
+    name: 'Tabla7',
+    size: '7.0x24x2/3',
+    weight: 29,
+    amount: 1,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 9000,
+    description:
+      'Stable and reliable surfboard with dimensions of 7.0x24x2/3. Designed for beginners and intermediate riders..',
+    type: 'Hybrid',
+    sold: false,
+  },
+  {
+    name: 'Tabla8',
+    size: '6.0x26x2/5',
+    weight: 42,
+    amount: 2,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 12000,
+    description: 'High-performance shortboard with dimensions of 6.0x26x2/5. .',
+    type: 'Shortboard',
+    sold: true,
+  },
+  {
+    name: 'Tabla9',
+    size: '6.3x29x2/5',
+    weight: 31,
+    amount: 3,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 12000,
+    description:
+      'Versatile surfboard with dimensions of 6.3x29x2/5. Suitable for various styles and skill levels.',
+    type: 'Hybrid',
+    sold: false,
+  },
+  {
+    name: 'Tabla10',
+    size: '6.2x19x3/4',
+    weight: 35,
+    amount: 6,
+    linkSocialMedia: 'mercadolibre.com.uy',
+    price: 15000,
+    description:
+      'High-performance shortboard with dimensions of 6.2x19x3/4. Suitable for experienced riders seeking speed and agility.',
+    type: 'Shortboard',
+    sold: true,
+  },
+];
 
 @Component({
   selector: 'app-surfboard-list',
   templateUrl: './surfboard-list.component.html',
-  styleUrls: ['./surfboard-list.component.css']
+  styleUrls: ['./surfboard-list.component.css'],
 })
-export class SurfboardListComponent {
+export class SurfboardListComponent implements OnInit, AfterViewInit {
+  dataSource = new MatTableDataSource<Surfboard>(listSurfboards);
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  displayedColumns: string[] = [
+    'name',
+    'size',
+    'weight',
+    'amount',
+    'linkSocialMedia',
+    'price',
+    'description',
+    'type',
+    'sold',
+    'accion',
+  ];
+
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
 }

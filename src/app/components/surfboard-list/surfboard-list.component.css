@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+
+  /* td,
+  th {
+    width: 1%;
+  } */
+  
+  .delete {
+    cursor: pointer;
+    color: #e15639;
+  }
+  
+  .edit {
+    cursor: pointer;
+    color: #1878b0;
+  }
+  
+  .search {
+    cursor: pointer;
+  }
+  
+  .add{
+    font-size: 10px;
+    line-height: 28px;
+  }
+  
