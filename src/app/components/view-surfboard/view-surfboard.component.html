@@ -1,1 +1,21 @@
-<p>view surfboards works!!</p>
+<div class="title">
+  <h1>View Surfboard</h1>
+</div>
+<div class="container">
+    <mat-card class="card">
+        <mat-card-title>{{ surfboard.name }}</mat-card-title>
+        <mat-card-content>
+          <p><strong>Size:</strong> {{ surfboard.size }} </p>
+          <p><strong>Weight:</strong> {{ surfboard.weight }} </p>
+          <p><strong>Amount:</strong> {{ surfboard.amount }} </p>
+          <p><strong>LinkSocialMedia:</strong> {{ surfboard.linkSocialMedia }} </p>
+          <p><strong>Price:</strong> {{ surfboard.price }} </p>
+          <p><strong>Description:</strong> {{ surfboard.description }} </p>
+          <p><strong>Type:</strong> {{ surfboard.type }} </p>
+          <p><strong>Sold:</strong> {{ surfboard.sold }} </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button>Back</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

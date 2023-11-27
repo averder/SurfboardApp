@@ -9,3 +9,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-align: center;
     color: white;
   }
+
+  .container {
+    margin: 0 20%;
+  }
+  
