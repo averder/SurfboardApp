@@ -1,6 +1,12 @@
 <div class="title">
   <h1>List Surfboards</h1>
 </div>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+</mat-form-field>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
