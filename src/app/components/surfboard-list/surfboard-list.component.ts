@@ -5,6 +5,7 @@ import { Surfboard } from 'src/app/Interfaces/surfboard';
 
 const listSurfboards: Surfboard[] = [
   {
+    id: 1,
     name: 'Tabla1',
     size: '6.0x18x3/4',
     weight: 35,
@@ -17,6 +18,7 @@ const listSurfboards: Surfboard[] = [
     sold: false,
   },
   {
+    id: 2,
     name: 'Tabla2',
     size: '7.0x13x2/3',
     weight: 23,
@@ -29,6 +31,7 @@ const listSurfboards: Surfboard[] = [
     sold: true,
   },
   {
+    id: 3,
     name: 'Tabla3',
     size: '6.4x14x2/7',
     weight: 45,
@@ -41,6 +44,7 @@ const listSurfboards: Surfboard[] = [
     sold: false,
   },
   {
+    id: 4,
     name: 'Tabla4',
     size: '7.2x18x2/3',
     weight: 35,
@@ -53,6 +57,7 @@ const listSurfboards: Surfboard[] = [
     sold: true,
   },
   {
+    id: 5,
     name: 'Tabla5',
     size: '6.4x19x2/6',
     weight: 42,
@@ -65,6 +70,7 @@ const listSurfboards: Surfboard[] = [
     sold: false,
   },
   {
+    id: 6,
     name: 'Tabla6',
     size: '6.7x19x2/4',
     weight: 27,
@@ -77,6 +83,7 @@ const listSurfboards: Surfboard[] = [
     sold: true,
   },
   {
+    id: 7,
     name: 'Tabla7',
     size: '7.0x24x2/3',
     weight: 29,
@@ -89,6 +96,7 @@ const listSurfboards: Surfboard[] = [
     sold: false,
   },
   {
+    id: 8,
     name: 'Tabla8',
     size: '6.0x26x2/5',
     weight: 42,
@@ -100,6 +108,7 @@ const listSurfboards: Surfboard[] = [
     sold: true,
   },
   {
+    id: 9,
     name: 'Tabla9',
     size: '6.3x29x2/5',
     weight: 31,
@@ -112,6 +121,7 @@ const listSurfboards: Surfboard[] = [
     sold: false,
   },
   {
+    id: 10,
     name: 'Tabla10',
     size: '6.2x19x3/4',
     weight: 35,

@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -61,11 +61,11 @@
 
   <ng-container matColumnDef="accion">
     <th mat-header-cell *matHeaderCellDef>
-      <button class="add" mat-raised-button color="primary">Aceptar</button>
+      <button routerLink="/addSurfboard" class="add" mat-raised-button color="primary">Aceptar</button>
     </th>
     <td mat-cell *matCellDef="let element">
-      <mat-icon matTooltip="View" class="search" fontIcon="search"></mat-icon>
-      <mat-icon matTooltip="Edit" class="edit" fontIcon="edit"></mat-icon>
+      <mat-icon routerLink="/viewSurfboard/{{ element.id }}" matTooltip="View" class="search" fontIcon="search"></mat-icon>
+      <mat-icon routerLink="/editSurfboard/{{ element.id }}" matTooltip="Edit" class="edit" fontIcon="edit"></mat-icon>
       <mat-icon matTooltip="Delete" class="delete" fontIcon="delete"></mat-icon>
     </td>
   </ng-container>
@@ -75,7 +75,7 @@
 </table>
 
 <mat-paginator
-  [pageSizeOptions]="[5, 10, 20]"
+  [pageSizeOptions]="[5, 10, 20]" 
   showFirstLastButtons
   aria-label="Select page of periodic elements"
 >
