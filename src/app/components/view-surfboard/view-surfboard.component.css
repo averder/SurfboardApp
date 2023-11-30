@@ -2,3 +2,12 @@
     margin-top:5px;
     text-align: center;
 }
+
+a {
+    text-decoration: none;
+    color: blue; 
+}
+
+  .buttonBack{
+    margin-right: auto;
+  }

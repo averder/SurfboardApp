@@ -11,7 +11,7 @@ export class ViewSurfboardComponent {
     size: '6.2x19x3/4',
     weight: 35,
     amount: 6,
-    linkSocialMedia: 'mercadolibre.com.uy',
+    linkSocialMedia: 'https://www.mercadolibre.com.uy',
     price: 15000,
     description:
       'High-performance shortboard with dimensions of 6.2x19x3/4. Suitable for experienced riders seeking speed and agility.',

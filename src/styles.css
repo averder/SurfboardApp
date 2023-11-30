@@ -13,4 +13,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .container {
     margin: 0 20%;
   }
+
+  /* shared bettween add-edit-surfboard and view-surfboard */
+  .example-card {
+    max-width: 400px;
+    margin-top: 20px;
+  }
+  
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.contenedor {
+    display: flex;
+    align-items: flex-start; /* Alinea el contenido hacia la parte superior */
+    justify-content: center; /* Centra horizontalmente */
+    height: 100vh; /* 100% de la altura de la ventana */
+  }
+  /* end */
+ 
   
