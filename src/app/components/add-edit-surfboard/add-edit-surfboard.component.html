@@ -1,24 +1,130 @@
 <div class="title">
-    <h1>{{ addOrEditTitle }} Surfboard</h1>
+  <h1>{{ addOrEditTitle }} Surfboard</h1>
 </div>
 <!-- <app-spinner *ngIf="loading"></app-spinner> -->
 <div class="contenedor">
-    <mat-card class="example-card">
-        <mat-card-header>
-          <!-- <div mat-card-avatar class="example-header-image"></div> -->
-          <mat-card-title>Surfboard</mat-card-title>
-          <mat-card-subtitle>Hybrid</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            This is a great Surfboard that contains the ability to surf in a differents waves!
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button>Edit image</button>
-          </mat-card-actions>
-      </mat-card>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title>Surfboard</mat-card-title>
+      <mat-card-subtitle>Type: Hybrid</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      *ngIf="selectedImage" 
+      mat-card-image
+      [src]="selectedImage"
+      alt="Imagen seleccionada"
+    />
+    <mat-card-content>
+      <form>
+        <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-tile [colspan]="2">
+           <div>
+             <button mat-button type="button" (click)="fileInput.click()">Upload Image</button>
+             <input class="uploadImageStyle" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*">
+           </div>
+           </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Size</mat-label>
+              <input matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field floatLabel="always">
+              <mat-label>Weight</mat-label>
+              <input
+                matInput
+                type="number"
+                class="example-right-align"
+                placeholder="0"
+              />
+              <span matTextSuffix>L</span>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field floatLabel="always">
+              <mat-label>Amount</mat-label>
+              <input
+                matInput
+                type="number"
+                class="example-right-align"
+                placeholder="0"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field floatLabel="always">
+              <mat-label>Price</mat-label>
+              <input
+                matInput
+                type="number"
+                class="example-right-align"
+                placeholder="0"
+              />
+              <span matTextPrefix>$&nbsp;</span>
+              <span matTextSuffix>.00</span>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field appearance="fill">
+              <mat-label>LinkSocialMedia</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                placeholder="www.mercadoliobre.com.uy"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Type</mat-label>
+              <mat-select>
+                <mat-option value="hybrid">Hybrid</mat-option>
+                <mat-option value="funboard">Funboard</mat-option>
+                <mat-option value="longboard">Longboard</mat-option>
+                <mat-option value="shortboard">Shortboard</mat-option>
+              </mat-select>
+              <input matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <mat-form-field class="example-full-width">
+              <mat-label>Description</mat-label>
+              <input matInput #input maxlength="200" placeholder="" />
+              <mat-hint align="end">{{ input.value.length }}/200</mat-hint>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <section class="example-section">
+              <label class="example-margin">Sold:</label>
+              <mat-radio-group [(ngModel)]="soldStatus"  name="soldStatus">
+                <mat-radio-button class="example-margin" value="after">Yes</mat-radio-button>
+                <mat-radio-button class="example-margin" value="before" checked="true">No</mat-radio-button>
+              </mat-radio-group>
+            </section>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <section class="example-section">
+              <label class="example-margin">Used:</label>
+              <mat-radio-group [(ngModel)]="usedStatus"  name="usedStatus">
+                <mat-radio-button class="example-margin" value="yes">Yes</mat-radio-button>
+                <mat-radio-button class="example-margin" value="no" checked="true">No</mat-radio-button>
+              </mat-radio-group>
+            </section>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="custom-button-container">
+      <button mat-button routerLink="/surfboard-list">Accept</button>
+      <button mat-button routerLink="/surfboard-list">Back</button>
+    </mat-card-actions>    
+  </mat-card>
 </div>
-
-  

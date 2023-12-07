@@ -17,5 +17,6 @@ export class ViewSurfboardComponent {
       'High-performance shortboard with dimensions of 6.2x19x3/4. Suitable for experienced riders seeking speed and agility.',
     type: 'Shortboard',
     sold: true,
+    used: false,
   };
 }

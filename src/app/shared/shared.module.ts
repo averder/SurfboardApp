@@ -8,6 +8,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -19,6 +22,9 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatSelectModule,
   ],
   exports: [
     MatCardModule,
@@ -28,6 +34,9 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatSelectModule,
   ],
 })
 export class SharedModule {}

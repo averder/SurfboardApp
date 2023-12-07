@@ -9,4 +9,5 @@ export interface Surfboard {
   description: string;
   type: string;
   sold: boolean;
+  used: boolean;
 }

@@ -16,6 +16,7 @@ const listSurfboards: Surfboard[] = [
       'Versatile surfboard suitable for various styles and skill levels. With dimensions of 6.0x18x3/4',
     type: 'Hybrid',
     sold: false,
+    used: false,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const listSurfboards: Surfboard[] = [
       'Sleek and nimble surfboard ideal for experienced riders. With dimensions of 7.0x13x2/3.',
     type: 'Shortboard',
     sold: true,
+    used: true,
   },
   {
     id: 3,
@@ -42,6 +44,7 @@ const listSurfboards: Surfboard[] = [
       'Sturdy and stable surfboard designed for intermediate surfers.',
     type: 'Funboard',
     sold: false,
+    used: true,
   },
   {
     id: 4,
@@ -55,6 +58,7 @@ const listSurfboards: Surfboard[] = [
       'Versatile surfboard with dimensions of 7.2x18x2/3, suitable for various skill levels.',
     type: 'Hybrid',
     sold: true,
+    used: false,
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ const listSurfboards: Surfboard[] = [
       'High-performance surfboard with dimensions of 6.4x19x2/6. Designed for experienced riders seeking agility and speed.',
     type: 'Shortboard',
     sold: false,
+    used: true,
   },
   {
     id: 6,
@@ -81,6 +86,7 @@ const listSurfboards: Surfboard[] = [
       'Fun and versatile surfboard with dimensions of 6.7x19x2/4. Lightweight at 27 pounds, this board is suitable for riders of all levels.',
     type: 'Funboard',
     sold: true,
+    used: true,
   },
   {
     id: 7,
@@ -94,6 +100,7 @@ const listSurfboards: Surfboard[] = [
       'Stable and reliable surfboard with dimensions of 7.0x24x2/3. Designed for beginners and intermediate riders..',
     type: 'Hybrid',
     sold: false,
+    used: false,
   },
   {
     id: 8,
@@ -106,6 +113,7 @@ const listSurfboards: Surfboard[] = [
     description: 'High-performance shortboard with dimensions of 6.0x26x2/5. .',
     type: 'Shortboard',
     sold: true,
+    used: true,
   },
   {
     id: 9,
@@ -119,6 +127,7 @@ const listSurfboards: Surfboard[] = [
       'Versatile surfboard with dimensions of 6.3x29x2/5. Suitable for various styles and skill levels.',
     type: 'Hybrid',
     sold: false,
+    used: true,
   },
   {
     id: 10,
@@ -132,6 +141,7 @@ const listSurfboards: Surfboard[] = [
       'High-performance shortboard with dimensions of 6.2x19x3/4. Suitable for experienced riders seeking speed and agility.',
     type: 'Shortboard',
     sold: true,
+    used: true,
   },
 ];
 
@@ -155,6 +165,7 @@ export class SurfboardListComponent implements OnInit, AfterViewInit {
     'description',
     'type',
     'sold',
+    'used',
     'accion',
   ];
 
