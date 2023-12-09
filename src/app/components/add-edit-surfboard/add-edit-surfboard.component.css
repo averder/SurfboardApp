@@ -1,27 +1,23 @@
   .centrado-superior {
     text-align: center;
-    margin-top: 20vh; /* Ajusta la separación desde la parte superior según sea necesario */
+    margin-top: 20vh;
+    margin-bottom: 20vh;
   }
 
-  .example-margin {
-    margin: 0 10px;
-  }
 
   mat-form-field {
     width: 100%;
-    margin: 5px;
+    margin: 10px 10px;
   }
 
-  
- .custom-button-container {
-   display: flex;
-   justify-content: space-between;
- }
 
  .custom-button-container button {
   margin: 20px 20px;
   }
-
+  
+  .example-full-width{
+    width: 100%;
+  }
 
   .uploadImageStyle {
     position: absolute; 

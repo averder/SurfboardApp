@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 
+//Modules
+import { ReactiveFormsModule } from '@angular/forms';
+
 //Material UI
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -25,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatGridListModule,
     MatRadioModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatCardModule,
@@ -37,6 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatGridListModule,
     MatRadioModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
 })
 export class SharedModule {}
