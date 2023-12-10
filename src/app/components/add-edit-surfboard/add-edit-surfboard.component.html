@@ -94,7 +94,6 @@
                 <mat-radio-button class="example-margin" value="after">Yes</mat-radio-button>
                 <mat-radio-button class="example-margin" value="before" [checked]=true>No</mat-radio-button>
               </mat-radio-group>
-              <mat-error *ngIf="hasFieldError('sold')">{{ getErrorMessage('sold') }}</mat-error>
             </section>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="2">
@@ -104,7 +103,6 @@
                 <mat-radio-button class="example-margin" value="yes">Yes</mat-radio-button>
                 <mat-radio-button class="example-margin" value="no" [checked]=true>No</mat-radio-button>
               </mat-radio-group>
-              <mat-error *ngIf="hasFieldError('used')">{{ getErrorMessage('used') }}</mat-error>
             </section>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="2">

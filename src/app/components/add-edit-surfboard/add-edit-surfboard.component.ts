@@ -32,25 +32,16 @@ export class AddEditSurfboardComponent implements OnInit {
     this.form = this.fb.group({
       image: [''],
       name: ['', Validators.required],
-      size: ['', Validators.required, Validators.pattern(/^[0-9]+$/)],
-      weight: ['', Validators.required, Validators.pattern(/^[0-9]+$/)],
-      amount: ['', Validators.required, Validators.pattern(/^[0-9]+$/)],
+      size: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+      weight: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+      amount: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
       linkSocialMedia: ['', Validators.required],
-      price: ['', Validators.required, Validators.pattern(/^[0-9]+$/)],
+      price: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
       description: ['', Validators.required],
       type: ['', Validators.required],
-      sold: ['', Validators.required, this.atLeastOneSelectedValidator()],
-      used: ['', Validators.required, this.atLeastOneSelectedValidator()],
+      sold: ['after', Validators.required],
+      used: ['no', Validators.required],
     });
-  }
-
-  atLeastOneSelectedValidator() {
-    return (control: { value: string[] }) => {
-      const selectedOptions = control.value;
-      return selectedOptions && selectedOptions.length > 0
-        ? null
-        : { atLeastOneSelected: true };
-    };
   }
 
   ngOnInit(): void {
