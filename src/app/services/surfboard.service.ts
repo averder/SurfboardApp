@@ -17,7 +17,18 @@ export class SurfboardService {
     return this.http.get<Surfboard[]>(`${this.myAppUrl}${this.myApiUrl}`);
   }
 
-  getSurfboard(id: Number): Observable<Surfboard> {
+  getSurfboard(id: number): Observable<Surfboard> {
     return this.http.get<Surfboard>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
+
+  deleteSurfboard(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
+
+  addSurfboard(surfboard: Surfboard): Observable<Surfboard> {
+    return this.http.post<Surfboard>(
+      `${this.myAppUrl}${this.myApiUrl}`,
+      surfboard
+    );
   }
 }

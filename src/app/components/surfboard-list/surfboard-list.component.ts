@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Surfboard } from 'src/app/Interfaces/surfboard';
 import { SurfboardService } from 'src/app/services/surfboard.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-surfboard-list',
@@ -16,8 +16,8 @@ export class SurfboardListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
-    private _snackBar: MatSnackBar,
-    private _surfboardService: SurfboardService
+    private _surfboardService: SurfboardService,
+    private _massageService: MessageService
   ) {}
 
   displayedColumns: string[] = [
@@ -53,9 +53,14 @@ export class SurfboardListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  deleteSurfboard() {
-    this._snackBar.open('The surfboard was deleted successfully', 'deleted', {
-      duration: 4000,
+  deleteSurfboard(id: number) {
+    this._surfboardService.deleteSurfboard(id).subscribe(() => {
+      this._massageService.successMessage(
+        'The surfboard was deleted successfully',
+        'deleted',
+        4000
+      );
+      this.getSurfboards();
     });
   }
 }

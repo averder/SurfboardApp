@@ -5,8 +5,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Surfboard } from 'src/app/Interfaces/surfboard';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
+import { SurfboardService } from 'src/app/services/surfboard.service';
 import { ValidationService } from 'src/app/services/validation.service';
+import { MessageService } from 'src/app/services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-surfboard',
@@ -15,8 +19,6 @@ import { ValidationService } from 'src/app/services/validation.service';
 })
 export class AddEditSurfboardComponent implements OnInit {
   addOrEditTitle: string = 'Edit';
-  soldStatus: string = 'before';
-  usedStatus: string = 'no';
   form: FormGroup;
 
   @ViewChild('submitButton') submitButton: any;
@@ -25,9 +27,12 @@ export class AddEditSurfboardComponent implements OnInit {
     'https://material.angular.io/assets/img/examples/shiba2.jpg';
 
   constructor(
+    private _surfboardService: SurfboardService,
+    private _messageService: MessageService,
     private imageUploadService: ImageUploadService,
     private fb: FormBuilder,
-    private validationService: ValidationService
+    private validationService: ValidationService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       image: [''],
@@ -39,8 +44,8 @@ export class AddEditSurfboardComponent implements OnInit {
       price: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
       description: ['', Validators.required],
       type: ['', Validators.required],
-      sold: ['after', Validators.required],
-      used: ['no', Validators.required],
+      sold: ['false', Validators.required],
+      used: ['false', Validators.required],
     });
   }
 
@@ -81,7 +86,39 @@ export class AddEditSurfboardComponent implements OnInit {
   }
 
   addSurfboard() {
-    console.log('add surfboard');
+    const surfboard: Surfboard = {
+      name: this.form.value.name,
+      size: this.form.value.size,
+      weight: this.form.value.weight,
+      amount: this.form.value.amount,
+      linkSocialMedia: this.form.value.linkSocialMedia,
+      price: this.form.value.price,
+      description: this.form.value.description,
+      type: this.form.value.type,
+      sold: this.convertToBool(this.form.value.sold),
+      used: this.convertToBool(this.form.value.used),
+      image: {
+        url: this.form.value.image,
+      },
+    };
+    this._surfboardService.addSurfboard(surfboard).subscribe((data) => {
+      this._messageService.successMessage(
+        'The surfboard was registered successfully',
+        'registered',
+        4000
+      );
+      this.router.navigate(['listSurfboard']);
+    });
+  }
+
+  convertToBool(value: any): boolean {
+    if (value == 'true' || value == 1) {
+      return true;
+    }
+    if (value == 'false' || value == 0) {
+      return false;
+    }
+    return false;
   }
 
   validateInputNumber($event: any, field: string) {

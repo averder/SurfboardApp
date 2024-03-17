@@ -1,3 +1,5 @@
+import { SurfboardImage } from './surfboardImage';
+
 export interface Surfboard {
   id?: number;
   name: string;
@@ -10,4 +12,5 @@ export interface Surfboard {
   type: string;
   sold: boolean;
   used: boolean;
+  image: SurfboardImage;
 }
