@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 //Modules
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //Material UI
 import { MatButtonModule } from '@angular/material/button';
@@ -14,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -29,6 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
+    HttpClientModule,
   ],
   exports: [
     MatCardModule,
@@ -42,6 +46,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
+    HttpClientModule,
   ],
 })
 export class SharedModule {}

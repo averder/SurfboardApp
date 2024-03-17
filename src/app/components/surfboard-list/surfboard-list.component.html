@@ -78,7 +78,7 @@
     <td mat-cell *matCellDef="let element">
       <mat-icon routerLink="/viewSurfboard/{{ element.id }}" matTooltip="View" class="search" fontIcon="search"></mat-icon>
       <mat-icon routerLink="/editSurfboard/{{ element.id }}" matTooltip="Edit" class="edit" fontIcon="edit"></mat-icon>
-      <mat-icon matTooltip="Delete" class="delete" fontIcon="delete"></mat-icon>
+      <mat-icon (click)="deleteSurfboard()" matTooltip="Delete" class="delete" fontIcon="delete"></mat-icon>
     </td>
   </ng-container>
 
