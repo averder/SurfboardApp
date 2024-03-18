@@ -10,7 +10,7 @@ import { ImageUploadService } from 'src/app/services/image-upload.service';
 import { SurfboardService } from 'src/app/services/surfboard.service';
 import { ValidationService } from 'src/app/services/validation.service';
 import { MessageService } from 'src/app/services/message.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-surfboard',
@@ -18,8 +18,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-edit-surfboard.component.css'],
 })
 export class AddEditSurfboardComponent implements OnInit {
-  addOrEditTitle: string = 'Edit';
+  addOrEditTitle: string = 'Add';
   form: FormGroup;
+  id: number;
 
   @ViewChild('submitButton') submitButton: any;
 
@@ -32,7 +33,8 @@ export class AddEditSurfboardComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private fb: FormBuilder,
     private validationService: ValidationService,
-    private router: Router
+    private router: Router,
+    private aRoute: ActivatedRoute
   ) {
     this.form = this.fb.group({
       image: [''],
@@ -47,11 +49,35 @@ export class AddEditSurfboardComponent implements OnInit {
       sold: ['false', Validators.required],
       used: ['false', Validators.required],
     });
+
+    this.id = Number(this.aRoute.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe(() => {
       this.updateSubmitButtonState();
+    });
+    if (this.id != 0) {
+      this.addOrEditTitle = 'Edit';
+      this.getSurfboard(this.id);
+    }
+  }
+
+  getSurfboard(id: number): void {
+    this._surfboardService.getSurfboard(id).subscribe((data) => {
+      this.form.setValue({
+        image: data.image,
+        name: data.name,
+        size: data.size,
+        weight: data.weight,
+        amount: data.amount,
+        linkSocialMedia: data.linkSocialMedia,
+        price: data.price,
+        description: data.description,
+        type: data.type,
+        sold: data.sold.toString(),
+        used: data.used.toString(),
+      });
     });
   }
 
@@ -85,7 +111,7 @@ export class AddEditSurfboardComponent implements OnInit {
     return this.selectedImage || null;
   }
 
-  addSurfboard() {
+  addOrEditSurfboard() {
     const surfboard: Surfboard = {
       name: this.form.value.name,
       size: this.form.value.size,
@@ -98,13 +124,33 @@ export class AddEditSurfboardComponent implements OnInit {
       sold: this.convertToBool(this.form.value.sold),
       used: this.convertToBool(this.form.value.used),
       image: {
-        url: this.form.value.image,
+        url: this.form.value.image == null ? '' : this.form.value.image.url,
       },
     };
+
+    if (this.id != 0) {
+      surfboard.id = this.id;
+      this.editSurfboard(this.id, surfboard);
+    } else {
+      this.addSurfboard(surfboard);
+    }
+  }
+
+  editSurfboard(id: number, surfboard: Surfboard) {
+    this._surfboardService.updateSurfboard(id, surfboard).subscribe(() => {
+      this._messageService.successMessage(
+        'The surfboard was edited successfully',
+        '',
+        4000
+      );
+    });
+  }
+
+  addSurfboard(surfboard: Surfboard) {
     this._surfboardService.addSurfboard(surfboard).subscribe((data) => {
       this._messageService.successMessage(
         'The surfboard was registered successfully',
-        'registered',
+        '',
         4000
       );
       this.router.navigate(['listSurfboard']);

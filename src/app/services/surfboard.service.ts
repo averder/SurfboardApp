@@ -31,4 +31,11 @@ export class SurfboardService {
       surfboard
     );
   }
+
+  updateSurfboard(id: number, surfboard: Surfboard): Observable<void> {
+    return this.http.put<void>(
+      `${this.myAppUrl}${this.myApiUrl}${id}`,
+      surfboard
+    );
+  }
 }

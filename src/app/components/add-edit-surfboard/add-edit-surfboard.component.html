@@ -10,7 +10,7 @@
     </mat-card-header>
     <img *ngIf="selectedImage" mat-card-image [src]="selectedImage" alt="Imagen seleccionada" />
     <mat-card-content>
-      <form [formGroup]="form" (ngSubmit)="addSurfboard()">
+      <form [formGroup]="form" (ngSubmit)="addOrEditSurfboard()">
         <mat-grid-list cols="2" rowHeight="2:1">
           <mat-grid-tile [colspan]="2">
             <div>
@@ -71,10 +71,10 @@
             <mat-form-field appearance="fill">
               <mat-label>Type</mat-label>
               <mat-select formControlName="type" >
-                <mat-option value="hybrid">Hybrid</mat-option>
-                <mat-option value="funboard">Funboard</mat-option>
-                <mat-option value="longboard">Longboard</mat-option>
-                <mat-option value="shortboard">Shortboard</mat-option>
+                <mat-option value="Hybrid">Hybrid</mat-option>
+                <mat-option value="Funboard">Funboard</mat-option>
+                <mat-option value="Longboard">Longboard</mat-option>
+                <mat-option value="Shortboard">Shortboard</mat-option>
               </mat-select>
               <input matInput autocomplete="off" />
             </mat-form-field>
